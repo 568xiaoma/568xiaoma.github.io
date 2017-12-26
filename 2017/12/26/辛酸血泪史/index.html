@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="description" content="" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -148,117 +148,116 @@
 
 
 <!-- -->
-<!--<body class="home-template">-->
+<!--<body class="post-template">-->
 <!---->
   
+
 <main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D"></h1>
 
-    
-    <article class="post">
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2017-12-26T11:42:32.475Z"
+                              itemprop="datePublished">2017-12-26</time>
+                    </div>
+    </span>
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2017/12/26/辛酸血泪史/"></a>
-            </h1>
+        <section class="post-content">
+            <h2 id="辛酸血泪史"><a href="#辛酸血泪史" class="headerlink" title="辛酸血泪史"></a>辛酸血泪史</h2><p><strong>简单聊一下，菜鸡我的链表踩坑史</strong></p>
+<ul>
+<li>初始化链表结构题中的每一个变量，搞得我很绝望&gt;_&lt;<ul>
+<li>0xCCCCCCCC</li>
+<li>0xCDCDCDCD</li>
+</ul>
+</li>
+<li>读取屏幕数据时，上一次未成功读入的数据会保留到下一次继续读入(这BUG调了好久呀T_T)由于getchar()不可能将上次留下的字符全部清除，你可以使用:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whille(getchar()!=&apos;\n&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>来清除屏幕缓存</p>
+<ul>
+<li>兼容呀，自己做的链表，存数字的时候格式一定要一样，否则，在多次应用的时候机会BUG频出</li>
+<li>先列流程，再编程序，这样会让你编程序的时候不会一直改来改去编(这个计算器**写了10个版本了T_T)写完一个功能都得另写一遍梳理思路，这样就诞生了我的10.0版本…</li>
+<li>文件及时关闭，在做多次使用计算器的由于需要多次输入文件，所以一定要及时关闭</li>
+</ul>
+<p><strong>机器学习</strong></p>
+<ul>
+<li>不知飞向何处的菜鸡…</li>
+<li>数学坑，慢慢补吧…</li>
+<li>现在网上的机器学习的课程还比较少,而且大部分机器学习课都要钱，讲的经典的也是凤毛麟角，就找一个可以看很久的教学视频就找了很久，在此，我推荐几个我学过的课程吧(我大概也只能看懂这些入门课了…)<ul>
+<li>《零基础入门学习Python》小甲鱼</li>
+<li>《用numpy和pandas把玩你的数据》</li>
+<li>《Machine Learning》Andrew NG</li>
+</ul>
+</li>
+</ul>
+<p><strong>Python</strong></p>
+<ul>
+<li><p>矩阵乘法的坑</p>
+<ul>
+<li><p>矩阵乘法(用的比较多)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np(a,b)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>普通乘法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a*b</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>矩阵逆置的坑</p>
+<ul>
+<li><p>正常逆置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.T</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一维数组不能逆置(否则你会死的很惨)，至于如何逆置，用万能的reshape(-1,1)吧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.reshape(-1,1)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>lambda()</p>
+<ul>
+<li>可递归的需要使用pd的Series，需要先使用类型转化</li>
+<li>不过数据处理还是np用的比较多，转化来去很烦，仔细点吧</li>
+</ul>
+</li>
+<li>Boardcast功能<ul>
+<li>还算比较方便，不过要注意维度对齐</li>
+</ul>
+</li>
+<li>很迷很迷的学习率调整<ul>
+<li>用很小的学习率，很稳，基本在1000次循环后就稳定了</li>
+<li>用很大的学习率，成本函数变化很豪放，跳来跳去，但是，有时候比前者的错误率低(菜鸡迷惑中)</li>
+</ul>
+</li>
+<li>读取文件<ul>
+<li>使用pd读出的数据是pd.DataFrame()类型的，所以需要数据处理的时候，类型转化为np.array()</li>
+</ul>
+</li>
+</ul>
+<p>由于没及时整理一下坑，所以漏掉不少，等CJ我remind的起来再更新<br>未完待续…</p>
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2017-12-26T11:42:32.475Z"
-                      itemprop="datePublished">2017-12-26</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                辛酸血泪史简单聊一下，菜鸡我的链表踩坑史
-
-初始化链表结构题中的每一个变量，搞得我很绝望&gt;_&lt;
-0xCCCCCCCC
-0xCDCDCDCD
-
-
-读取屏幕数据时，上一次未成功读入的数据会保留到下一次继续读入(这BUG调了好久呀T_T)由于getchar()不可能将上次留下的字符全部清除，你可以使用:1whille(getchar()!=&apos;\n&apos;);
-
-
-来清除屏幕缓存
-
-兼容呀，自己做的链表，存数字的时候格
-                
-            </p>
-            
         </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2017/12/26/hello-world/">Hello World</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2017-12-26T07:24:42.453Z"
-                      itemprop="datePublished">2017-12-26</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new p
-                
-            </p>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/LinuxNodes/'>LinuxNodes</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2017/12/18/LinuxNodes/">LinuxNodes</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2017-12-17T16:47:14.000Z"
-                      itemprop="datePublished">2017-12-18</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                Linus命令简说LinuxLinux 系统是一个多用户多任务的分时操作系统，要使用Linux系统，就需要登录系统，且必须拥有用户名和密码，用户名和密码通常是系统管理员通过你的申请下发给你，用户的账号一方面可以帮助系统管理员对使用系统的用户进行跟踪，并控制他们对系统资源的访问；另一方面也可以帮助用户组织文件，并为用户提供安全性保护。
-初识Linux多用户的理解:
-
-用户类别:
-
-root用户（超级用户）：系统唯一，是真实的。该用户既可以
-                
-            </p>
+            <a style="cursor:default" class="newer-posts" href="#">This is the First Post</a>
             
+            <a class="share-button" data-original-title title>Share this Post</a>
+            
+            <a data-pjax class="older-posts" href="/2017/12/26/hello-world/">Next Post →</a>
+            
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
         </section>
+
+
     </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <span class="page-number">Page 1 of 1</span>
-        
-    </nav>
 </main>
 
 
