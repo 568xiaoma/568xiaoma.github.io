@@ -43,6 +43,10 @@
                                 <div class="mp-scroll">
                                 
                                 <li class="search-archive-li mp-pjax">
+                                    <a href="/2018/01/09/感知机笔记/">感知机笔记</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
                                     <a href="/2017/12/28/编程日记2017-12-28/">编程日记</a>
                                 </li>
                                 
@@ -52,10 +56,6 @@
                                 
                                 <li class="search-archive-li mp-pjax">
                                     <a href="/2017/12/20/LinuxNodes/">LinuxNodes</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2017/01/09/感知机笔记/">感知机笔记</a>
                                 </li>
                                 
                                 </div>
@@ -128,13 +128,13 @@
         <div id="pjax">
             <div class="pjax-hidden" style="display: none">
                 
+                    <a  data-pjax href="/2018/01/09/感知机笔记/">感知机笔记</a>
+                
                     <a  data-pjax href="/2017/12/28/编程日记2017-12-28/">编程日记</a>
                 
                     <a  data-pjax href="/2017/12/25/辛酸血泪史/">辛酸血泪史</a>
                 
                     <a  data-pjax href="/2017/12/20/LinuxNodes/">LinuxNodes</a>
-                
-                    <a  data-pjax href="/2017/01/09/感知机笔记/">感知机笔记</a>
                 
                 
                 
@@ -180,6 +180,53 @@
   
 <main class="content" role="main">
 
+    
+    <article class="post">
+
+        <header class="post-header">
+            <div class="tag-tile">
+                
+                
+                <a data-pjax href='/tags/感知机笔记/'>感知机笔记</a>
+                
+                
+                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
+            </div>
+            <h1 class="post-title"><a data-pjax href="/2018/01/09/感知机笔记/">感知机笔记</a>
+            </h1>
+
+            <div class="post-meta">
+                Post on<span class="fa fa-clock-o"></span>
+                <time datetime="2018-01-09T13:26:31.000Z"
+                      itemprop="datePublished">2018-01-09</time>
+            </div>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                
+                基本思想
+可以将每一个样本的特征向量都看作多维空间的一个点
+
+将样本集看作多维空间的点集
+
+寻找一个(超)平面，将不同类(正例、与反例)的点分割开
+
+输入测试样例，根据特征向量对应的点在空间与(超)平面的位置关系来预测其分类
+
+单个模型只用于二分类
+
+多次二分类可以进行多分类
+
+
+基本思路：基于Python实现训练数据数据输入与输出
+输入：训练数据集 T=(x1,y1),(x2,y2),⋯,(xN,yN)
+xi为数据的特征向量
+yi为数
+                
+            </p>
+            
+        </section>
+    </article>
     
     <article class="post">
 
@@ -285,53 +332,6 @@ VS Code 基本编的JS代码都是用的VS Code编的，很方便，但是里面
 用户类别:
 
 root用户（超级用户）：系统唯一，是真实的。该用户既可以
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/感知机笔记/'>感知机笔记</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2017/01/09/感知机笔记/">感知机笔记</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2017-01-09T13:26:31.000Z"
-                      itemprop="datePublished">2017-01-09</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                基本思想
-可以将每一个样本的特征向量都看作多维空间的一个点
-
-将样本集看作多维空间的点集
-
-寻找一个(超)平面，将不同类(正例、与反例)的点分割开
-
-输入测试样例，根据特征向量对应的点在空间与(超)平面的位置关系来预测其分类
-
-单个模型只用于二分类
-
-多次二分类可以进行多分类
-
-
-基本思路：基于Python实现训练数据数据输入与输出
-输入：训练数据集 T=(x1,y1),(x2,y2),⋯,(xN,yN)
-xi为数据的特征向量
-yi为数
                 
             </p>
             

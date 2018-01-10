@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>请叫我Mc.Yin(CJ.jpg</title>
+  <title>感知机笔记 | 请叫我Mc.Yin(CJ.jpg</title>
   <meta name="description" content="gegedagegeda" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -156,7 +156,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#"></a></li>
+                        <li id="navbar-title"><a href="#">感知机笔记</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -175,174 +175,120 @@
 
 
 <!-- -->
-<!--<body class="home-template">-->
+<!--<body class="post-template">-->
 <!---->
   
+
 <main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/感知机笔记/' style='color:#D5D5D5'>感知机笔记</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">感知机笔记</h1>
 
-    
-    <article class="post">
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2018-01-09T13:26:31.000Z"
+                              itemprop="datePublished">2018-01-09</time>
+                    </div>
+    </span>
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/感知机笔记/'>感知机笔记</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2018/01/09/感知机笔记/">感知机笔记</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2018-01-09T13:26:31.000Z"
-                      itemprop="datePublished">2018-01-09</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                基本思想
-可以将每一个样本的特征向量都看作多维空间的一个点
-
-将样本集看作多维空间的点集
-
-寻找一个(超)平面，将不同类(正例、与反例)的点分割开
-
-输入测试样例，根据特征向量对应的点在空间与(超)平面的位置关系来预测其分类
-
-单个模型只用于二分类
-
-多次二分类可以进行多分类
-
-
-基本思路：基于Python实现训练数据数据输入与输出
-输入：训练数据集 T=(x1,y1),(x2,y2),⋯,(xN,yN)
-xi为数据的特征向量
-yi为数
-                
-            </p>
-            
+        <section class="post-content">
+            <h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><ul>
+<li><p>可以将每一个样本的特征向量都看作多维空间的一个点</p>
+</li>
+<li><p>将样本集看作多维空间的点集</p>
+</li>
+<li><p>寻找一个(超)平面，将不同类(正例、与反例)的点分割开</p>
+</li>
+<li><p>输入测试样例，根据特征向量对应的点在空间与(超)平面的位置关系来预测其分类</p>
+</li>
+<li><p>单个模型只用于二分类</p>
+</li>
+<li><p>多次二分类可以进行多分类</p>
+</li>
+</ul>
+<h2 id="基本思路：基于Python实现"><a href="#基本思路：基于Python实现" class="headerlink" title="基本思路：基于Python实现"></a>基本思路：基于Python实现</h2><h3 id="训练数据"><a href="#训练数据" class="headerlink" title="训练数据"></a><em>训练数据</em></h3><h4 id="数据输入与输出"><a href="#数据输入与输出" class="headerlink" title="数据输入与输出"></a>数据输入与输出</h4><ul>
+<li>输入：训练数据集 T=(x1,y1),(x2,y2),⋯,(xN,yN)<ul>
+<li>xi为数据的特征向量</li>
+<li>yi为数据的标记值，yi∈Y={−1,+1}，i=1,2,⋯,N;</li>
+<li>学习率 η(0&lt;η≤1) </li>
+</ul>
+</li>
+<li>输出：w,b</li>
+</ul>
+<h4 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h4><p><strong>相关函数</strong></p>
+<ul>
+<li><p>激活函数：f(x)=sign(x)</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">        &#123; −1 x&lt;0</span><br><span class="line">sign(x)=|</span><br><span class="line">        &#123;  1 x≥0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>损失函数：L(w,b)=-∑yi(w⋅xi+b)其中，(xi,yi)均为假例(预测与实际不符)</p>
+<ul>
+<li><p>其实损失函数应该是误分类点到(超)平面的距离，但出于简便，使用上式作损失函数(效果一样)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">L(w,b)=−∑yi·(w∙xi+b)/║w║</span><br><span class="line">(xi,yi)均为假例,</span><br><span class="line">║w║为w的范数,</span><br><span class="line">2-范数:║x║=(│x1│^2+│x2│^2+…+│xn│^2)^1/2</span><br></pre></td></tr></table></figure>
+<p>对L对w,b求偏导：</p>
+</li>
+<li>dL/dw = yi*xi</li>
+<li>dL/db = yi</li>
+</ul>
+</li>
+</ul>
+<p><strong>实现算法</strong></p>
+<ul>
+<li>随机初始化参数：w0,b0 </li>
+<li>读取训练数据存为矩阵：[xi,yi] </li>
+<li>激活函数激活：ACT = sign(w⋅xi+b)</li>
+<li>计算损失函数：L(w,b)=-∑yi(w⋅xi+b)<ul>
+<li>其实用L=-∑yi(sign(w⋅xi+b))来可视化更直观</li>
+<li>但是梯度下降时，一定要使用L(w,b)=-∑yi(w⋅xi+b)的导数</li>
+</ul>
+</li>
+<li><p>梯度下降</p>
+<p>  当yi(w⋅xi+b)≤0(或yi(sign(w⋅xi+b))==-1)时更新参数：</p>
+<ul>
+<li>w=w+η·yi·xi</li>
+<li>b=b+η·yi</li>
+</ul>
+</li>
+<li><p>循环进行直至L为0(没有误差分类点)</p>
+</li>
+<li><p>输出w,b到文件便于测试使用</p>
+</li>
+</ul>
+<h3 id="测试数据"><a href="#测试数据" class="headerlink" title="测试数据"></a><em>测试数据</em></h3><h4 id="数据读入"><a href="#数据读入" class="headerlink" title="数据读入"></a>数据读入</h4><ul>
+<li>读入训练后输出的数据</li>
+<li>读入测试数据</li>
+</ul>
+<h4 id="数据预测"><a href="#数据预测" class="headerlink" title="数据预测"></a>数据预测</h4><ul>
+<li><p>使用参数进行预测</p>
+<p>  yi = sign(w⋅xi+b)</p>
+</li>
+</ul>
+<h4 id="输出结果：yi"><a href="#输出结果：yi" class="headerlink" title="输出结果：yi"></a>输出结果：yi</h4>
         </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/编程日记/'>编程日记</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2017/12/28/编程日记2017-12-28/">编程日记</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2017-12-28T12:17:14.000Z"
-                      itemprop="datePublished">2017-12-28</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                在自己鸽了两周的Web作业后，今天的我从期末前的各种作业中爬出来，学习了一下JS语言.
-JS基本语法在学过Python后看JS感觉还OK，两类面向对象的语言很相似，所以基本语法没有多练习了，在以后的实践中慢慢磨合吧
-1.准备工作
-在VS里更新了Nodejs的组件(但是感觉用起来不是很舒服，VS都会帮你打包成一个文件夹，在命令行运行的时候有点不爽)
-
-VS Code 基本编的JS代码都是用的VS Code编的，很方便，但是里面Debug的
-                
-            </p>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/辛酸血泪史/'>辛酸血泪史</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2017/12/25/辛酸血泪史/">辛酸血泪史</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2017-12-25T14:20:16.000Z"
-                      itemprop="datePublished">2017-12-25</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                辛酸血泪史简单聊一下，菜鸡我的链表踩坑史
-
-初始化链表结构题中的每一个变量，搞得我很绝望&gt;_&lt;
-0xCCCCCCCC
-0xCDCDCDCD
-
-
-读取屏幕数据时，上一次未成功读入的数据会保留到下一次继续读入(这BUG调了好久呀T_T)由于getchar()不可能将上次留下的字符全部清除，清除屏幕缓存,你可以使用:
-1whille(getchar()!=&apos;\n&apos;);
-
-兼容呀，自己做的链表，存数字的时候格式一
-                
-            </p>
+            <a style="cursor:default" class="newer-posts" href="#">This is the First Post</a>
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/LinuxNodes/'>LinuxNodes</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2017/12/20/LinuxNodes/">LinuxNodes</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2017-12-20T11:59:56.000Z"
-                      itemprop="datePublished">2017-12-20</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                Linus命令简说LinuxLinux 系统是一个多用户多任务的分时操作系统，要使用Linux系统，就需要登录系统，且必须拥有用户名和密码，用户名和密码通常是系统管理员通过你的申请下发给你，用户的账号一方面可以帮助系统管理员对使用系统的用户进行跟踪，并控制他们对系统资源的访问；另一方面也可以帮助用户组织文件，并为用户提供安全性保护。
-初识Linux多用户的理解:
-
-用户类别:
-
-root用户（超级用户）：系统唯一，是真实的。该用户既可以
-                
-            </p>
+            <a class="share-button" data-original-title title>Share this Post</a>
             
+            <a data-pjax class="older-posts" href="/2017/12/28/编程日记2017-12-28/">Next Post →</a>
+            
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
         </section>
+
+
     </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <span class="page-number">Page 1 of 1</span>
-        
-    </nav>
 </main>
 
 
